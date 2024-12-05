@@ -31,6 +31,22 @@ class Graph {
   }
 
   /**
+   * Checks if given vertices are connected by a single edge.
+   *
+   * @param $v1
+   *   Vertex 1.
+   * @param $v2
+   *   Vertex 2
+   *
+   * @return bool
+   *   TRUE if there is a (single) edge between `v1` and `v2`.
+   */
+  private function isSingleEdge($v1, $v2): bool {
+    // There is no edge from v to itself and combination of vertices exists in the edges array.
+    return $v1 !== $v2 && (in_array([$v1, $v2], $this->edges) || in_array([$v2, $v1], $this->edges));
+  }
+
+  /**
    * Runs depth-first search.
    *
    * @param $vertex
@@ -40,21 +56,15 @@ class Graph {
    *
    * @return void
    *
-   * @link https://en.wikipedia.org/wiki/Depth-first_search#Pseudocode
    */
   protected function dfs($vertex, array &$explored): void {
     // Mark vertex as explored.
     $explored[] = $vertex;
 
-    // Get edges incident on the vertex.
-    $edges = array_filter($this->edges, fn ($edge) => in_array($vertex, $edge));
-    foreach ($edges as $edge) {
-      // Gets a vertex from the edge which is not the current vertex.
-      $another_endpoint = current(array_filter($edge, fn($v) => $v !== $vertex));
-
-      // If another endpoint has not been explored - explore it.
-      if (!in_array($another_endpoint, $explored)) {
-        $this->dfs($another_endpoint, $explored);
+    foreach ($this->vertices as $v) {
+      // If the vertex is not explored and connected to the root vertex by a single edge.
+      if (!in_array($v, $explored) && $this->isSingleEdge($vertex, $v)) {
+        $this->dfs($v, $explored);
       }
     }
   }
