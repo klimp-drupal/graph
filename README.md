@@ -41,11 +41,15 @@ The app does not support:
 # Variations (branches)
 
 1. `simple-dfs`
-   - does not implement the function `f(v1, v2)`. 
-   - instead, it saves edges as a `Graph` class property.
+   - does not implement the function `f(v1, v2)`
+   - instead, passes edges to the `Graph` class constructor and saves them as a property
    - the Depth-first Search algorithm is based on the pseudocode taken from [wikipedia](@link https://en.wikipedia.org/wiki/Depth-first_search#Pseudocode)
-   The algorithm iterates through the edges directly connected to a vertex
+   - the algorithm iterates through the edges directly connected to a vertex
 2. `using-function`
-   - passes arrow function to the `Graph` class constructor and saves it as a property.
-   - calls the function in the Depth-first Search algorithm in order to identify if a vertex connected to the root vertex by a single edge.
+   - passes the arrow function `f(v1, v2)` to the `Graph` class constructor and saves it as a property
+   - calls the function in the Depth-first Search algorithm in order to identify if a vertex connected to the root vertex by a single edge
    - the Depth-first Search algorithm iterates through the vertices (not edges)
+3. `method`
+   - passes edges to the `Graph` class constructor and saves them as a property
+   - implements the function `f(v1, v2)` as the `Graph` class method
+   - iterates through the vertices and uses the `isSingleEdge` method to check if a vertex connected to the root vertex by a single edge
