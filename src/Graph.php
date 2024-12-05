@@ -6,7 +6,7 @@ class Graph {
 
   public function __construct(
     private readonly array $vertices,
-    private readonly array $edges) {}
+    private $function) {}
 
   /**
    * Counts largest connected components.
@@ -46,15 +46,10 @@ class Graph {
     // Mark vertex as explored.
     $explored[] = $vertex;
 
-    // Get edges incident on the vertex.
-    $edges = array_filter($this->edges, fn ($edge) => in_array($vertex, $edge));
-    foreach ($edges as $edge) {
-      // Gets a vertex from the edge which is not the current vertex.
-      $another_endpoint = current(array_filter($edge, fn($v) => $v !== $vertex));
-
-      // If another endpoint has not been explored - explore it.
-      if (!in_array($another_endpoint, $explored)) {
-        $this->dfs($another_endpoint, $explored);
+    foreach ($this->vertices as $v) {
+      // If the vertex is not explored and connected to the root vertex by a single edge.
+      if (!in_array($v, $explored) && ($this->function)($vertex, $v)) {
+        $this->dfs($v, $explored);
       }
     }
   }
