@@ -53,3 +53,38 @@ The app does not support:
    - passes edges to the `Graph` class constructor and saves them as a property
    - implements the function `f(v1, v2)` as the `Graph` class method
    - iterates through the vertices and uses the `isSingleEdge` method to check if a vertex connected to the root vertex by a single edge
+4. `master` same as `method`
+
+# Testing
+
+For testing the `Graph` class the app uses `PHPUnit`. 
+There is only one method in the test class `testCountLargestConnectedComponents` 
+which corresponds to the only `public` method `countLargestConnectedComponents` of the tested `Graph` class.
+6 different sets of vertices and edges come to the test method from a `DataProvider`.
+
+## Running the tests
+```shell
+./vendor/bin/phpunit --testdox tests
+```
+
+## The output
+```shell
+PHPUnit 11.4.4 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.14
+
+......                                                              6 / 6 (100%)
+
+Time: 00:00.012, Memory: 4.00 MB
+
+Graph (App\Graph)
+ ✔ Count largest connected components with data set "no vertices, no edges, 4 connected components"
+ ✔ Count largest connected components with data set "4 vertices, no edges, 4 connected components"
+ ✔ Count largest connected components with data set "3 vertices, 2 edges, 1 connected component"
+ ✔ Count largest connected components with data set "4 vertices, 2 edges, 1 connected component"
+ ✔ Count largest connected components with data set "10 vertices, 2 edges, 1 connected component"
+ ✔ Count largest connected components with data set "8 cities, 6 roads, 3 connected components"
+
+OK (6 tests, 12 assertions)
+
+```
