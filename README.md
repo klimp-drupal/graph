@@ -68,18 +68,20 @@ PHPUnit 11.4.4 by Sebastian Bergmann and contributors.
 
 Runtime:       PHP 8.3.14
 
-......                                                              6 / 6 (100%)
+.......                                                             7 / 7 (100%)
 
 Time: 00:00.012, Memory: 4.00 MB
 
 Graph (App\Graph)
  ✔ Count largest connected components with data set "no vertices, no edges, 4 connected components"
  ✔ Count largest connected components with data set "4 vertices, no edges, 4 connected components"
+ ✔ Count largest connected components with data set "3 vertices, 2 loop edges, 3 connected components"
  ✔ Count largest connected components with data set "3 vertices, 2 edges, 1 connected component"
  ✔ Count largest connected components with data set "4 vertices, 2 edges, 1 connected component"
  ✔ Count largest connected components with data set "10 vertices, 2 edges, 1 connected component"
  ✔ Count largest connected components with data set "8 cities, 6 roads, 3 connected components"
 
-OK (6 tests, 12 assertions)
+OK (7 tests, 14 assertions)
+
 
 ```
