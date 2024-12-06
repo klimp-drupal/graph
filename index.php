@@ -1,6 +1,6 @@
 <?php
 
-require 'src/Graph.php';
+require './vendor/autoload.php';
 
 $vertices = [
   'Toronto',
