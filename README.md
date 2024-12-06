@@ -34,10 +34,6 @@ In other words CSG is as large as it can be and still be connected.
 
 The app implements **undirected simple graph** which consist of one or more **connected components**.
 
-The app does not support:
-- **multiple edges**, in which two or more edges connect the same vertices, are not allowed. 
-- **loops** (edge that joins a vertex to itself) are not allowed.
-
 # Variations (branches)
 
 1. [simple-dfs](https://github.com/klimp-drupal/graph/tree/simple-dfs)
