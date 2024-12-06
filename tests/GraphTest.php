@@ -23,6 +23,19 @@ final class GraphTest extends TestCase {
         'expectedCount' => 4
       ],
 
+      '3 vertices, 2 loop edges, 3 connected components' => [
+        'vertices' => [1, 2, 3],
+        'f' => fn($v1, $v2) => $v1 !== $v2 && (
+          in_array([$v1, $v2], [
+            [1, 1],
+            [2, 2],
+          ]) || in_array([$v2, $v1], [
+            [1, 1],
+            [2, 2],
+          ])),
+        'expectedCount' => 3
+      ],
+
       '3 vertices, 2 edges, 1 connected component' => [
         'vertices' => [1, 2, 3],
         'f' => fn($v1, $v2) => $v1 !== $v2 && (
