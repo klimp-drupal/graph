@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
-class Graph {
+final class Graph {
 
   public function __construct(
     private readonly array $vertices,
@@ -57,7 +59,7 @@ class Graph {
    * @return void
    *
    */
-  protected function dfs($vertex, array &$explored): void {
+  private function dfs($vertex, array &$explored): void {
     // Mark vertex as explored.
     $explored[] = $vertex;
 
