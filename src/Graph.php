@@ -52,11 +52,11 @@ final class Graph {
     $edges = array_filter($this->edges, fn ($edge) => in_array($vertex, $edge));
     foreach ($edges as $edge) {
       // Gets a vertex from the edge which is not the current vertex.
-      $another_endpoint = current(array_filter($edge, fn($v) => $v !== $vertex));
+      $anotherEndpoint = current(array_filter($edge, fn($v) => $v !== $vertex));
 
       // If another endpoint has not been explored - explore it.
-      if (!in_array($another_endpoint, $explored)) {
-        $this->dfs($another_endpoint, $explored);
+      if (!in_array($anotherEndpoint, $explored)) {
+        $this->dfs($anotherEndpoint, $explored);
       }
     }
   }
