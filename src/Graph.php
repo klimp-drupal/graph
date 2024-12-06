@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
-class Graph {
+final class Graph {
 
   public function __construct(
     private readonly array $vertices,
@@ -42,7 +44,7 @@ class Graph {
    *
    * @link https://en.wikipedia.org/wiki/Depth-first_search#Pseudocode
    */
-  protected function dfs($vertex, array &$explored): void {
+  private function dfs($vertex, array &$explored): void {
     // Mark vertex as explored.
     $explored[] = $vertex;
 
